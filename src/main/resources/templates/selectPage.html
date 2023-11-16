@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>상세페이지</title>
 </head>
 <body>
 상세페이지 입니다.
+<h1>Summoner Information</h1>
+<p>Account ID: <span th:text="${summoner.accountId}"></span></p>
+<p>Profile Icon ID: <span th:text="${summoner.profileIconId}"></span></p>
+<p>Revision Date: <span th:text="${summoner.revisionDate}"></span></p>
+<p>Name: <span th:text="${summoner.name}"></span></p>
+<p>ID: <span th:text="${summoner.id}"></span></p>
+<p>PUUID: <span th:text="${summoner.puuid}"></span></p>
+<p>Summoner Level: <span th:text="${summoner.summonerLevel}"></span></p>
 </body>
 </html>
