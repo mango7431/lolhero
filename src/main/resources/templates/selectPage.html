@@ -6,13 +6,53 @@
 </head>
 <body>
 상세페이지 입니다.
-<h1>Summoner Information</h1>
+<a href="/home">메인화면으로 가기</a>
+<h1>소환사 정보 검색</h1>
+<h3>솔랭 티어</h3>
+<div th:if="${solo != 'none'}">
+    <p>티어: <span th:text="${solo.tier}"></span></p>
+    <p><img th:src="@{'/tierimg/Rank' + ${solo.tier} + '.png'}"></p>
+</div>
+<div th:if="${solo == 'none'}">
+    <p>티어: <span th:text="'none'"></span></p>
+    <p><img th:src="@{'/tierimg/Ranknone.png'}"></p>
+</div>
+
+<h3>자랭 티어</h3>
+<div th:if="${flex != 'none'}">
+    <p>티어: <span th:text="${flex.tier}"></span></p>
+    <p><img th:src="@{'/tierimg/Rank' + ${flex.tier} + '.png'}"></p>
+</div>
+<div th:if="${flex == 'none'}">
+    <p>티어: <span th:text="'none'"></span></p>
+    <p><img th:src="@{'/tierimg/Ranknone.png'}"></p>
+</div>
 <p>Account ID: <span th:text="${summoner.accountId}"></span></p>
-<p>Profile Icon ID: <span th:text="${summoner.profileIconId}"></span></p>
+<p>아이콘 : <img th:src="@{'https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/' + ${summoner.profileIconId} + '.png'}"></p>
 <p>Revision Date: <span th:text="${summoner.revisionDate}"></span></p>
 <p>Name: <span th:text="${summoner.name}"></span></p>
 <p>ID: <span th:text="${summoner.id}"></span></p>
 <p>PUUID: <span th:text="${summoner.puuid}"></span></p>
 <p>Summoner Level: <span th:text="${summoner.summonerLevel}"></span></p>
+<br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>챔피언 사진</th>
+        <th>챔피언 이름</th>
+        <th>숙련도</th>
+        <th>숙련도 점수</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="championMastery : ${champ}">
+        <td><img th:src="@{'https://ddragon.leagueoflegends.com/cdn/13.23.1/img/champion/' + ${championMastery.championName} + '.png'}"></td>
+        <td th:text="${championMastery.championName}"></td>
+        <td th:text="${championMastery.championLevel}"></td>
+        <td th:text="${championMastery.championPoints}"></td>
+    </tr>
+    </tbody>
+
+</table>
 </body>
 </html>
