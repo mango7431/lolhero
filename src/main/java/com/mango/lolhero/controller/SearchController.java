@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Slf4j
 public class SearchController {
 
-    @PostMapping("/searchOne/user")
+    @PostMapping("/selectPage")
     public String searchOne(String username){
         System.out.println(username);
 
