@@ -57,8 +57,13 @@ public class SummonerController {
                     model.addAttribute("flex", tierDtos.get(0));
                 }
             }else if (tierDtos.size()==2){
-                model.addAttribute("solo",tierDtos.get(0));
-                model.addAttribute("flex",tierDtos.get(1));
+                if ("RANKED_SOLO_5x5".equals(tierDtos.get(0).getQueueType())) {
+                    model.addAttribute("solo",tierDtos.get(0));
+                    model.addAttribute("flex",tierDtos.get(1));
+                } else if ("RANKED_FLEX_SR".equals(tierDtos.get(0).getQueueType())) {
+                    model.addAttribute("solo",tierDtos.get(1));
+                    model.addAttribute("flex",tierDtos.get(0));
+                }
             }
             return "selectPage";
         }
