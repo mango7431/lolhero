@@ -10,25 +10,25 @@
 <h1>소환사 정보 검색</h1>
 <h3>솔랭 티어</h3>
 <div th:if="${solo != 'none'}">
-    <p>티어: <span th:text="${solo.tier}"></span></p>
-    <p><img th:src="@{'/tierimg/Rank' + ${solo.tier} + '.png'}"></p>
+    <p>티어: <span th:text="${solo.tier + ' ' + solo.rank}"></span></p>
+    <p><img th:src="@{'/tierimg/Rank' + ${solo.tier} + '.png'}" style="width: 100px; height: 100px"></p>
 </div>
 <div th:if="${solo == 'none'}">
     <p>티어: <span th:text="'none'"></span></p>
-    <p><img th:src="@{'/tierimg/Ranknone.png'}"></p>
+    <p><img th:src="@{'/tierimg/Ranknone.png'}" style="width: 100px; height: 100px"></p>
 </div>
 
 <h3>자랭 티어</h3>
 <div th:if="${flex != 'none'}">
-    <p>티어: <span th:text="${flex.tier}"></span></p>
-    <p><img th:src="@{'/tierimg/Rank' + ${flex.tier} + '.png'}"></p>
+    <p>티어: <span th:text="${flex.tier + ' ' +flex.rank }"></span></p>
+    <p><img th:src="@{'/tierimg/Rank' + ${flex.tier} + '.png'}" style="width: 100px; height: 100px"></p>
 </div>
 <div th:if="${flex == 'none'}">
     <p>티어: <span th:text="'none'"></span></p>
-    <p><img th:src="@{'/tierimg/Ranknone.png'}"></p>
+    <p><img th:src="@{'/tierimg/Ranknone.png'}" style="width: 100px; height: 100px"></p>
 </div>
 <p>Account ID: <span th:text="${summoner.accountId}"></span></p>
-<p>아이콘 : <img th:src="@{'https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/' + ${summoner.profileIconId} + '.png'}"></p>
+<p>아이콘 : <img th:src="@{'https://ddragon.leagueoflegends.com/cdn/13.23.1/img/profileicon/' + ${summoner.profileIconId} + '.png'}" style="width: 100px; height: 100px"></p>
 <p>Revision Date: <span th:text="${summoner.revisionDate}"></span></p>
 <p>Name: <span th:text="${summoner.name}"></span></p>
 <p>ID: <span th:text="${summoner.id}"></span></p>
@@ -46,7 +46,7 @@
     </thead>
     <tbody>
     <tr th:each="championMastery : ${champ}">
-        <td><img th:src="@{'https://ddragon.leagueoflegends.com/cdn/13.23.1/img/champion/' + ${championMastery.championName} + '.png'}"></td>
+        <td><img th:src="@{'https://ddragon.leagueoflegends.com/cdn/13.23.1/img/champion/' + ${championMastery.championName} + '.png'}" style="width: 50px; height: 50px"></td>
         <td th:text="${championMastery.championName}"></td>
         <td th:text="${championMastery.championLevel}"></td>
         <td th:text="${championMastery.championPoints}"></td>
